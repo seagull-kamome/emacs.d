@@ -18,21 +18,31 @@
 			    (menu-bar-lines . 0)
 			    (alpha . 100)
 			    (fullscreen . nil)))
-(blink-cursor-mode -1)
+(blink-cursor-mode 0)
 (setq-default show-trailing-whitespace t)
 (set-face-background 'trailing-whitespace "#b14770")
 
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" "Set `ansi-color-for-comint-mode' to t." t)
 
 (win:startup-with-window)
-(define-key ctl-x-map "C" 'see-you-again)
+(define-key ctl-x-map "c" 'see-you-again)
 
 (require 'auto-highlight-symbol)
 (global-auto-highlight-symbol-mode t)
-(global-linum-mode 1)
+(global-linum-mode t)
+(column-number-mode t)
 
+(setq scroll-step 10)
+(setq next-line-add-newlines nil)
+(setq resize-minibuffer-mode t)  ; ミニバッファの大きさを自動的に変える
+(menu-bar-mode 1)
+(tool-bar-mode 0)
+(scroll-bar-mode -1)
+(display-time-mode t)
+(setq indicate-empty-lines t)
+(show-paren-mode t)
 
-(set-default-font "Bitstream Vera Sans Mono-7")
+(set-default-font "Bitstream Vera Sans Mono-7.5")n
 (set-fontset-font (frame-parameter nil 'font)
 		  'japanese-jisx0208
 		  '("Takaoゴシック" . "unicode-bmp"))
