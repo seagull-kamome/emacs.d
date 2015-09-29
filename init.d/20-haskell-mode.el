@@ -42,6 +42,10 @@
 	     (whitespace-newline-mode)
 	     ) )
 
+(add-hook 'haskell-cabal-mode-hook
+	  '(lambda ()
+	     (setq 'indent-tabs-mode nil)))
+
 
 ;; (haskell-notify-p t)
 (setq haskell-tags-on-save t)
@@ -50,3 +54,13 @@
 (haskell-process-log t)
 (haskell-process-suggest-remove-import-lines t)
 (haskell-process-type (quote cabal-repl))
+
+
+(setq auto-mode-alist
+      (append auto-mode-alist
+	      '(("\\.hs$"  . haskell-mode)
+		("\\.hi$"  . haskell-mode)
+		("\\.hsc$" . haskell-mode)
+		("\\.chs$" . haskell-mode)
+		("\\.lhs$" . literate-haskell-mode))))
+
